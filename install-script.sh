@@ -16,6 +16,7 @@ cp $SCRIPT_NAME $SCRIPT_DIR
 echo "Change permisions of this directory and script"
 sudo chown -R $TSMAGENT:tableau $SCRIPT_DIR
 sudo chmod +x $SCRIPT_DIR/$SCRIPT_NAME
+sudo usermod -G tableau -a $TSMAGENT
 
 # Execute the script as the tsm admin user to test it works correctly in your environment…
 # sudo su $tsmuser -c $SCRIPT_DIR/$SCRIPT_NAME

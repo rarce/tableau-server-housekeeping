@@ -23,7 +23,6 @@ DATAPATH="/var/opt/tableau/tableau_server/data"
 LOGPATH="$DATAPATH/tabsvc/files/log-archives"
 BACKUPPATH="$DATAPATH/tabsvc/files/backups"
 backupdays="1"
-tableau-backup="tableau-server-backup"
 logdays="1"
 configfile='/etc/tableau-server-housekeeping.cfg'
 # load config
