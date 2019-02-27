@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="/var/opt/tableau/tableau_server/data/scripts"
 SCRIPT_NAME="tableau-server-housekeeping-linux.sh"
-TSMAGENT="rarce"
+TSMAGENT=$USER
 TSMAGENT_HOME="/home/$TSMAGENT"
 # Run once a day at 01:00
 SCRIPT_CRON="0 1 * * * ${SCRIPT_DIR}/${SCRIPT_NAME} > /home/${TSMAGENT}/${SCRIPT_NAME}.log"

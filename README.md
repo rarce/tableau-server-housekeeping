@@ -1,6 +1,18 @@
-# Housekeeping scripts for Tableau Server Linux
+# Install instructions
 
-* Update them when you upgrade! The tabadmin/tsm executables are run from a path that contains the version number, so whenever you upgrade to a new Tableau Server version, you need to update the script. Make this a documented part of your upgrade process
+Clone this repo:
+```
+git clone https://github.com/rarce/tableau-server-housekeeping.git
+```
 
-Find me on [twitter](https://twitter.com/macdonaldj) if you want to feed back, or just have a chat.
+Edit and copy config:
+```
+sudo cp tableau-server-housekeeping/tableau-server-housekeeping.cfg.example /etc/tableau-server-housekeeping.cfg
+sudo vim /etc/tableau-server-housekeeping.cfg
+```
 
+Run install script
+```
+cd tableau-server-housekeeping
+./install-script.sh
+```

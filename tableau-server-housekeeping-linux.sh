@@ -12,7 +12,7 @@ timestamp()
 # Set some variables - you should change these to match your own environment
 DATE=`date +%Y-%m-%d`
 # Tableau Server version
-VERSION="10500.18.0404.1406"
+VERSION="20183.18.1019.1426"
 # Path to TSM executable
 TSMPATH="/opt/tableau/tableau_server/packages/customer-bin.$VERSION"
 # Export this path to environment variables (for cron to run properly)
