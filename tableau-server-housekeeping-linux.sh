@@ -47,7 +47,7 @@ fi
 
 # archive current logs 
 echo "$(timestamp): Archiving current logs..."
-tsm maintenance ziplogs -a -t -o -f logs-$DATE.zip -u $TSMUSER -p $TSMPASSWORD
+tsm maintenance ziplogs -a -t -o -f logs-$DATE.zip -u $TSMUSER
 #copy logs to different location (optional)
 echo "$(timestamp): Copying logs to remote share"
 gsutil cp $LOGPATH/logs-$DATE.zip gs://$BUCKET/tableau/logs/logs-$DATE.zip
@@ -67,9 +67,9 @@ if [ $lines -eq 0 ]; then
 fi
 
 echo "$(timestamp): Exporting current settings..."
-tsm settings export -f $BACKUPPATH/settings.json -u $TSMUSER -p $TSMPASSWORD
+tsm settings export -f $BACKUPPATH/settings.json -u $TSMUSER
 echo "$(timestamp): Backup up Tableau Server data..."
-tsm maintenance backup -f tableau-backup-$DATE -u $TSMUSER -p $TSMPASSWORD
+tsm maintenance backup -f tableau-backup-$DATE -u $TSMUSER
 echo "$(timestamp): Copying backup and settings to remote share"
 gsutil cp $BACKUPPATH/tableau-backup-$DATE.tsbak gs://$BUCKET/tableau/backup/tableau-backup-$DATE.tsbak
 # END OF BACKUP SECTION
@@ -77,7 +77,7 @@ gsutil cp $BACKUPPATH/tableau-backup-$DATE.tsbak gs://$BUCKET/tableau/backup/tab
 # CLEANUP AND RESTART SECTION
 # cleanup old logs and temp files 
 echo "$(timestamp): Cleaning up Tableau Server..."
-tsm maintenance cleanup -a -u $TSMUSER -p $TSMPASSWORD
+tsm maintenance cleanup -a -u $TSMUSER
 # END OF CLEANUP AND RESTART SECTION
 
 # END OF SCRIPT
