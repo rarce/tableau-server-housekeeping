@@ -8,10 +8,10 @@ TSMAGENT_HOME="/home/$TSMAGENT"
 SCRIPT_CRON="0 1 * * * ${SCRIPT_DIR}/${SCRIPT_NAME} > /home/${TSMAGENT}/${SCRIPT_NAME}.log"
 
 echo "Create a new directory called scripts in your Tableau server data directory"
-mkdir -p $SCRIPT_DIR
+sudo mkdir -p $SCRIPT_DIR
 
 echo "Copy script file"
-cp $SCRIPT_NAME $SCRIPT_DIR
+sudo cp $SCRIPT_NAME $SCRIPT_DIR
 
 echo "Change permisions of this directory and script"
 sudo chown -R $TSMAGENT:tableau $SCRIPT_DIR
@@ -23,7 +23,7 @@ sudo usermod -G tableau -a $TSMAGENT
 
 echo "Schedule script using cron"
 sudo su $TSMAGENT -c "crontab -l > $TSMAGENT_HOME/crontab.txt"
-if grep -Fxq "${SCRIPT_CRON}" crontab.txt; then
+if grep -Fxq "${SCRIPT_CRON}" $TSMAGENT_HOME/crontab.txt; then
     echo "Script already in cron"
     echo "modify manually"
 else
